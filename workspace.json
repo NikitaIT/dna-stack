@@ -3,6 +3,7 @@
   "projects": {
     "app-shell": "apps/app-shell",
     "app-shell-e2e": "apps/app-shell-e2e",
-    "store": "libs/store"
+    "store": "libs/store",
+    "ui": "libs/ui"
   }
 }

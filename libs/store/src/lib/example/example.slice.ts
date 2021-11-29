@@ -55,7 +55,7 @@ export const fetchExample = createAsyncThunk(
 export const initialExampleState: ExampleState = exampleAdapter.getInitialState(
   {
     loadingStatus: 'not loaded',
-    error: null,
+    error: '',
   }
 );
 
@@ -81,7 +81,7 @@ export const exampleSlice = createSlice({
       )
       .addCase(fetchExample.rejected, (state: ExampleState, action) => {
         state.loadingStatus = 'error';
-        state.error = action.error.message;
+        state.error = action.error.message || '';
       });
   },
 });
@@ -127,8 +127,9 @@ export const exampleActions = exampleSlice.actions;
  */
 const { selectAll, selectEntities } = exampleAdapter.getSelectors();
 
-export const getExampleState = (rootState: unknown): ExampleState =>
-  rootState[EXAMPLE_FEATURE_KEY];
+export const getExampleState = (rootState: {
+  [EXAMPLE_FEATURE_KEY]: ExampleState;
+}): ExampleState => rootState[EXAMPLE_FEATURE_KEY];
 
 export const selectAllExample = createSelector(getExampleState, selectAll);
 
