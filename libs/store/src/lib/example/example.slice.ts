@@ -48,7 +48,7 @@ export const fetchExample = createAsyncThunk(
      * For example, `return myApi.getExamples()`;
      * Right now we just return an empty array.
      */
-    return Promise.resolve([]);
+    return Promise.resolve([] as ExampleEntity[]);
   }
 );
 

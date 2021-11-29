@@ -4,39 +4,37 @@ describe('example reducer', () => {
   it('should handle initial state', () => {
     const expected = exampleAdapter.getInitialState({
       loadingStatus: 'not loaded',
-      error: null,
+      error: '',
     });
 
     expect(exampleReducer(undefined, { type: '' })).toEqual(expected);
   });
 
   it('should handle fetchExamples', () => {
-    let state = exampleReducer(undefined, fetchExample.pending(null, null));
+    let state = exampleReducer(undefined, fetchExample.pending(''));
 
     expect(state).toEqual(
       expect.objectContaining({
         loadingStatus: 'loading',
-        error: null,
+        error: '',
         entities: {},
+        ids: [],
       })
     );
 
-    state = exampleReducer(
-      state,
-      fetchExample.fulfilled([{ id: 1 }], null, null)
-    );
+    state = exampleReducer(state, fetchExample.fulfilled([{ id: 1 }], ''));
 
     expect(state).toEqual(
       expect.objectContaining({
         loadingStatus: 'loaded',
-        error: null,
+        error: '',
         entities: { 1: { id: 1 } },
       })
     );
 
     state = exampleReducer(
       state,
-      fetchExample.rejected(new Error('Uh oh'), null, null)
+      fetchExample.rejected(new Error('Uh oh'), '')
     );
 
     expect(state).toEqual(

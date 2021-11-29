@@ -4,6 +4,7 @@
     "app-shell": "apps/app-shell",
     "app-shell-e2e": "apps/app-shell-e2e",
     "store": "libs/store",
-    "ui": "libs/ui"
+    "ui": "libs/ui",
+    "ui-e2e": "apps/ui-e2e"
   }
 }
