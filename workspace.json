@@ -5,6 +5,8 @@
     "app-shell-e2e": "apps/app-shell-e2e",
     "di": "libs/di",
     "i18n": "libs/i18n",
+    "native-app-shell": "apps/native-app-shell",
+    "native-app-shell-e2e": "apps/native-app-shell-e2e",
     "store": "libs/store",
     "ui": "libs/ui",
     "ui-e2e": "apps/ui-e2e"

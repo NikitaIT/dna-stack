@@ -1,0 +1,58 @@
+{
+  "testRunner": "jest",
+  "runnerConfig": "jest.config.json",
+  "apps": {
+    "ios.debug": {
+      "type": "ios.app",
+      "build": "cd ../native-app-shell/ios && xcodebuild -workspace NativeAppShell.xcworkspace -scheme NativeAppShell -configuration Debug -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 12' -derivedDataPath ./build -quiet",
+      "binaryPath": "../native-app-shell/ios/build/Build/Products/Debug-iphonesimulator/NativeAppShell.app"
+    },
+    "ios.release": {
+      "type": "ios.app",
+      "build": "cd ../native-app-shell/ios && xcodebuild -workspace NativeAppShell.xcworkspace -scheme NativeAppShell -configuration Release -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 12' -derivedDataPath ./build -quiet",
+      "binaryPath": "../native-app-shell/ios/build/Build/Products/Release-iphonesimulator/NativeAppShell.app"
+    },
+    "android.debug": {
+      "type": "android.apk",
+      "build": "cd ../native-app-shell/android && ./gradlew assembleDebug assembleAndroidTest -DtestBuildType=debug",
+      "binaryPath": "../native-app-shell/android/app/build/outputs/apk/debug/app-debug.apk"
+    },
+    "android.release": {
+      "type": "android.apk",
+      "build": "cd ../native-app-shell/android && ./gradlew assembleRelease assembleAndroidTest -DtestBuildType=release",
+      "binaryPath": "../native-app-shell/android/app/build/outputs/apk/release/app-release.apk"
+    }
+  },
+  "devices": {
+    "simulator": {
+      "type": "ios.simulator",
+      "device": {
+        "type": "iPhone 12"
+      }
+    },
+    "emulator": {
+      "type": "android.emulator",
+      "device": {
+        "avdName": "Pixel_4a_API_30"
+      }
+    }
+  },
+  "configurations": {
+    "ios.sim.release": {
+      "device": "simulator",
+      "app": "ios.release"
+    },
+    "ios.sim.debug": {
+      "device": "simulator",
+      "app": "ios.debug"
+    },
+    "android.emu.release": {
+      "device": "emulator",
+      "app": "android.release"
+    },
+    "android.emu.debug": {
+      "device": "emulator",
+      "app": "android.debug"
+    }
+  }
+}
