@@ -15,7 +15,9 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@dna/ui": ["libs/ui/src/index.ts"],
+      "@mdna/ui": ["libs/ui/src/index.ts"],
+      "@mdna/di": ["libs/di/src/index.ts"],
+      "@mdna/i18n": ["libs/i18n/src/index.ts"],
       "@mdna/store": ["libs/store/src/index.ts"]
     }
   },

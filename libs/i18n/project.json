@@ -1,0 +1,23 @@
+{
+  "root": "libs/i18n",
+  "sourceRoot": "libs/i18n/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/i18n/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/i18n"],
+      "options": {
+        "jestConfig": "libs/i18n/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  }
+}
